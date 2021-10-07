@@ -27,19 +27,21 @@ export default function Cart(){
                 {
                 
                         state===undefined?"Loading":(
-                            state.map((product)=>{
-                                return(
-                                <div className="m-4">
-                                 <CartCard product={product}/>
-                                </div>
-                                );
-                            })
-                        )
+                            state.length===0?<div className="m-32"><i className="empty-wishlist-icon fas fa-box-open"></i><p className="uppercase mt-8 text-2xl">It's lonely in here, add something to cart to see them here</p></div>:(
+                                state.map((product)=>{
+                                    return(
+                                    <div className="m-4">
+                                     <CartCard product={product}/>
+                                    </div>
+                                    );
+                                })
+                            )
+                            )
                    
                 }
             </div>
             <div className="cart-invoice-section w-1/4 h-full pt-8">
-             <p className="text-xl text-bold">Total: ₹{getTotal()}</p>
+             <p className="text-xl text-bold">{getTotal()>0?`₹Total: ${getTotal()}`:"No items in cart"}</p>
                 <div className="cart-invoice mt-8 flex flex-col">
                     {
                         state===undefined?"Loading":(

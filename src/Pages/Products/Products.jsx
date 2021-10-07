@@ -6,6 +6,7 @@ import { useAuth } from "../../Contexts/AuthContext";
 import { data } from "../../Data/data";
 import { baseurl } from "../../utils/apiCalls";
 import { useFilter } from "../../Contexts/FilterContext";
+import { useCart } from "../../Contexts/CartContext";
 
 export default function Products(){
 
@@ -15,6 +16,8 @@ export default function Products(){
 
     const [toastStatus, setToastStatus] = useState(false)
     const {token} = useAuth();
+
+    const {state} = useCart();
     
 
 

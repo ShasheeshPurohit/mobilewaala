@@ -1,3 +1,7 @@
 .wishlist-layout{
     overflow: hidden;
 }
+
+.empty-wishlist-icon{
+    font-size: 4rem;
+}

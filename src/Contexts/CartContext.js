@@ -14,9 +14,9 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     (async function () {
       const response = await axios.get(`${baseurl}/api/cart`)
-      console.log(response)
+      // console.log(response)
       if(response.status === 200){
-        console.log(response.data.cartData)
+        // console.log(response.data.cartData)
         dispatch({ type: "LOAD_DATA", payload: response.data.cartData })
       }
     })()

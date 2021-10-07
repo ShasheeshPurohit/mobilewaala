@@ -6,13 +6,38 @@ import axios from "axios";
 import { baseurl } from "../../utils/apiCalls";
 import {useFilter} from "../../Contexts/FilterContext";
 import { Link } from "react-router-dom";
+import { useCart } from "../../Contexts/CartContext";
+import { useWishlist } from "../../Contexts/WishlistContext";
 
 export default function ProductDetail(){
+    const {state, dispatch} = useCart();
+    const {wishState, addToWishList, removeFromWishList} = useWishlist();
 
     const {productId} = useParams();
     const {filteredData} = useFilter();
 
     // console.log(filteredData)
+
+    const addToCart = async (product) => {
+        // console.log(product)
+        // setloading(true);
+        const response = await axios.post(`${baseurl}/api/cart/${product._id}`, { });
+        if (response.status === 200) {
+          dispatch({ type: "ADD_TO_CART", payload: product });
+          
+        //   toast.success("Added to cart")
+        //   setloading(false);
+        }
+        // setloading(false);
+
+        const cresponse = await axios.get(`${baseurl}/api/cart`)
+      // console.log(cresponse)
+      if(cresponse.status === 200){
+        // console.log(cresponse.data.cartData)
+        dispatch({ type: "LOAD_DATA", payload: cresponse.data.cartData })
+      }
+        
+      };
     
 
     const product = filteredData.filter((item)=>item._id===productId)[0]
@@ -33,8 +58,8 @@ export default function ProductDetail(){
                     {product.fastDelivery && <div className="product-delivery-details flex flex-col"><i className="fas fa-bolt"></i> <p>Fast Delivery</p></div>}
                 </div>
                 <div className="product-detail-buttons">
-                <button className="product-detail-btn mt-8 mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase">Add <i class="fas fa-shopping-cart"></i></button>
-                <button className="product-detail-btn mt-8 mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase">Add <i class="fas fa-heart"></i></button>
+                <button className="product-detail-btn mt-8 mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase" onClick={()=>addToCart(product)}>Add <i class="fas fa-shopping-cart"></i></button>
+                <button className="product-detail-btn mt-8 mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase" onClick={()=>addToWishList(product)}>Add <i class="fas fa-heart"></i></button>
                 </div>
             </div>
             </div>

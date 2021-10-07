@@ -10,7 +10,7 @@ export default function WishListCard({product}){
     const{removeFromWishList} = useWishlist();
 
     const addToCart = async (product) => {
-        console.log(product)
+        // console.log(product)
         // setloading(true);
         const response = await axios.post(`${baseurl}/api/cart/${product._id}`, { });
         if (response.status === 200) {
@@ -21,9 +21,9 @@ export default function WishListCard({product}){
         // setloading(false);
 
         const cresponse = await axios.get(`${baseurl}/api/cart`)
-      console.log(cresponse)
+    //   console.log(cresponse)
       if(cresponse.status === 200){
-        console.log(cresponse.data.cartData)
+        // console.log(cresponse.data.cartData)
         dispatch({ type: "LOAD_DATA", payload: cresponse.data.cartData })
       }
         
