@@ -12,11 +12,11 @@ export default function ProductDetail(){
     const {productId} = useParams();
     const {filteredData} = useFilter();
 
-    console.log(filteredData)
+    // console.log(filteredData)
     
 
     const product = filteredData.filter((item)=>item._id===productId)[0]
-    console.log(product)
+    // console.log(product)
 
     return(
         <div className="product-detail-layout">
