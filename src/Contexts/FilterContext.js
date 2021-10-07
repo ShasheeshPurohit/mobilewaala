@@ -24,7 +24,7 @@ export const FilterProvider = ({ children }) => {
 
   useEffect(() => {
     (async function(){
-      console.log("useEf filter trigger")
+      // console.log("useEf filter trigger")
       const response = await axios.get(`${baseurl}/api/products`)
     setProducts(response.data.products)
     })()
