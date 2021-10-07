@@ -1,0 +1,65 @@
+.cart-layout{
+    overflow-y: hidden;
+}
+
+.cart-display{
+    overflow-y: scroll;
+}
+
+.cart-invoice-section{
+    border-left: 2px solid grey;
+    height: 100%;
+}
+
+.cart-invoice{
+    overflow-y: scroll;
+    height: 75%;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    overflow-y: scroll;
+}
+
+.product-invoice{
+    align-items: center;
+}
+
+/* width */
+.cart-invoice::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  .cart-invoice::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  .cart-invoice::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  .cart-invoice::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  /* width */
+.cart-display::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  .cart-display::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  .cart-display::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  .cart-display::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  

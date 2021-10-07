@@ -1,0 +1,94 @@
+
+.home-hero{
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)) , url("https://images.unsplash.com/photo-1615655406736-b37c4fabf923?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.heading-box{
+    display: absolute;
+    top:30%;
+    left: 50%;
+
+}
+
+.main-heading{
+    letter-spacing: 5px;
+    transform: translate(-50%,-50%);
+    font-size: 3rem;
+}
+
+.sub-heading{
+    letter-spacing: 5px;
+    transform: translate(-50%,-50%);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.product-animation{
+    margin-top: 2rem;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper{
+    display: flex;
+  }
+  .wrapper .static-txt{
+    color: #fff;
+    font-size: 60px;
+    font-weight: 400;
+  }
+  .wrapper .dynamic-txts{
+    margin-left: 15px;
+    height: 90px;
+    line-height: 90px;
+    overflow: hidden;
+  }
+  .dynamic-txts li{
+    list-style: none;
+    text-transform: uppercase;
+    color: #000;
+    font-size: 60px;
+    font-weight: 500;
+    position: relative;
+    top: 0;
+    animation: slide 12s steps(4) infinite;
+  }
+  @keyframes slide {
+    100%{
+      top: -360px;
+    }
+  }
+  .dynamic-txts li span{
+    position: relative;
+    margin: 5px 0;
+    line-height: 90px;
+  }
+  .dynamic-txts li span::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    border-left: 2px solid #000;
+    animation: typing 3s steps(10) infinite;
+  }
+  @keyframes typing {
+    40%, 60%{
+      left: calc(100% + 30px);
+    }
+    100%{
+      left: 0;
+    }
+  }
+
+.home-button-main{
+    margin-top: 4rem;
+}
+
+.home-btn{
+    transition: all 0.2s;
+}

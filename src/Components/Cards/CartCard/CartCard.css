@@ -1,0 +1,45 @@
+.cart-card{
+    border: 2px solid rgb(153, 153, 153);
+    border-radius: 10px;
+    padding: 0.5rem;
+    height: 20rem;
+    width: 14rem;
+    box-shadow: 1px 1px rgb(92, 92, 92);
+    cursor: pointer;
+}
+
+.cart-image-container{
+    height: 68%;
+    width: 100%;
+}
+
+.cart-image{
+    height: 100%;
+    width: 100%;
+}
+
+.cart-details{
+    justify-content: space-between;
+}
+
+.cart-add-btn{
+    margin-top: 0.7rem;
+    transition: all 0.2s;
+}
+
+.cart-add-btn:active{
+    transform: scale(0.9);
+}
+
+.quantity-btn{
+    transform: scale(1.2);
+    transition: all 0.2s;
+}
+
+.quantity-btn:active{
+    transform: scale(1);
+}
+
+.cart-card-btn{
+    font-size: 0.7rem;
+}

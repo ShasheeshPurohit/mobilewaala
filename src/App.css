@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  overflow-x: hidden;
 }
 
 .App-logo {
@@ -36,3 +37,12 @@
     transform: rotate(360deg);
   }
 }
+
+/******************** App-Screen ***************/
+
+.App-screen{
+  height: 91vh;
+}
+
+
+

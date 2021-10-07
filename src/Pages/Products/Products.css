@@ -1,0 +1,20 @@
+
+.filter-menu{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: justify;
+    width: max-content;
+    border: 2px solid white;
+}
+
+.product-display{
+    align-items: flex-start;
+    overflow-y: scroll;
+}
+
+.product-filters{
+    border-right: 2px solid grey;
+}
+

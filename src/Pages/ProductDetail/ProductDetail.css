@@ -1,0 +1,41 @@
+.product-detail-layout{
+    overflow: hidden;
+}
+
+.product-detail-image-container{
+    height: 40rem;
+    width: 40rem;
+}
+
+.product-detail-image{
+    height: 100%;
+    width: 100%;
+}
+
+.product-detail-product-name{
+    font-size: 3rem;
+}
+
+.product-detail-product-brand{
+    font-size: 2.5rem;
+}
+
+.product-detail-product-price{
+    font-size: 2rem;
+}
+
+.product-detail-product-offer{
+    font-size: 2rem;
+}
+
+.product-detail-btn{
+    transition: all 0.2s;
+}
+
+.product-detail-btn:active{
+    transform: scale(0.9);
+}
+
+.product-delivery-details{
+    font-size: 1.5rem;
+}

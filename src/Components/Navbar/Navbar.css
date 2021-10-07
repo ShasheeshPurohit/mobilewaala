@@ -1,0 +1,29 @@
+.nav-brand{
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.nav-links{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nav-link:link,
+.nav-link:visited,
+.nav-logout-btn{
+    margin-left: 2rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 400;
+    cursor: pointer;
+    color: white;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.nav-link:hover,
+.nav-logout-btn:hover{
+    border-bottom: 2px solid white;
+}

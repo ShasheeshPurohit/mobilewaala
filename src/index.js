@@ -3,10 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter as Router} from "react-router-dom";
+import {CartProvider} from "./Contexts/CartContext";
+import {WishlistProvider} from "./Contexts/WishlistContext";
+import {FilterProvider} from "./Contexts/FilterContext";
+import {AuthProvider} from "./Contexts/AuthContext"
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <AuthProvider>
+        <FilterProvider>
+          <CartProvider>
+           <WishlistProvider>
+             <App />
+          </WishlistProvider>
+         </CartProvider>
+       </FilterProvider>
+      </AuthProvider>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
