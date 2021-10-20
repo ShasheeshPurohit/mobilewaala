@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import reducerFunc from "./reducerFuntion"
 import {baseurl} from '../utils/apiCalls'
+import {toast} from "react-toastify"
 
 const AuthContext = createContext()
 
@@ -46,6 +47,7 @@ export const AuthProvider = ({children}) => {
             setToken(response.data.token)
             setLoginState("login success")
             // console.log("sucess")
+            toast.success("Successfully logged in")
             navigate("/")
         }
         }catch(error){

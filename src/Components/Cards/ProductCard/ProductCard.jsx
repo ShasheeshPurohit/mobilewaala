@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import {useWishlist} from "../../../Contexts/WishlistContext"
 import {useNavigate} from "react-router-dom"
 import {useAuth} from "../../../Contexts/AuthContext"
+import { toast } from "react-toastify";
 
 export default function ProductCard({product}){
   const navigate = useNavigate()
@@ -35,7 +36,7 @@ export default function ProductCard({product}){
         if (response.status === 200) {
           dispatch({ type: "ADD_TO_CART", payload: product });
           
-        //   toast.success("Added to cart")
+          toast.success("Added to cart");
         //   setloading(false);
         }
         // setloading(false);
@@ -60,7 +61,7 @@ export default function ProductCard({product}){
                 {token?(wishlistFlag.length>0?
                 <button className="wishlist-add-btn"><i class="fas fa-heart" style={{color:"red"}} onClick={()=>removeFromWishList(product)}></i></button>
                 :
-                    <button className="wishlist-add-btn"><i class="far fa-heart" onClick={()=>addToWishList(product)}></i></button>
+                    <button className="wishlist-add-btn"><i class="far fa-heart" onClick={()=>{addToWishList(product)}}></i></button>
     ): <button disabled className="wishlist-add-btn"><i class="fas fa-heart" onClick={()=>addToWishList(product)}></i></button>}
             </div>
             <div className="product-details flex">

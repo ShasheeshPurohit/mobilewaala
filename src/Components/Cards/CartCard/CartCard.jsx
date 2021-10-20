@@ -3,6 +3,7 @@ import {useCart} from "../../../Contexts/CartContext";
 import { useWishlist } from "../../../Contexts/WishlistContext";
 import { baseurl } from "../../../utils/apiCalls";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function CartCard({product}){
 
@@ -39,7 +40,8 @@ export default function CartCard({product}){
         if (response.status === 200) {
           dispatch({ type: "REMOVE", payload: product });
         //   setRemove(false);
-        }
+        toast.success("Removed from Cart")
+        }  
         // setRemove(false);
       };
 

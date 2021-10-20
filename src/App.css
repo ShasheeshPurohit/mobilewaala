@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  overflow-x: hidden;
+  overflow: hidden;
+  height: 100vh;
 }
 
 .App-logo {
@@ -41,7 +42,8 @@
 /******************** App-Screen ***************/
 
 .App-screen{
-  height: 91vh;
+  height: 100%;
+  overflow-y: hidden;
 }
 
 

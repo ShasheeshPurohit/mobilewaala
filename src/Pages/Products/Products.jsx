@@ -22,7 +22,7 @@ export default function Products(){
 
 
     return(
-        <div className="products-layout h-full bg-white flex">
+        <div className="products-layout  bg-white flex">
             <div className="product-filters w-1/5 flex p-16 flex-col">
                 <p className="text-2xl mb-4 text-bold">Filters:</p>
                 <div className="filter-menu flex flex-col">

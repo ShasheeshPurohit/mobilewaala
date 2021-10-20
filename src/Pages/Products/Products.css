@@ -1,3 +1,8 @@
+.products-layout{
+    height: 100%;
+  
+}
+
 
 .filter-menu{
     display: flex;
@@ -11,7 +16,9 @@
 
 .product-display{
     align-items: flex-start;
+    min-height: 100%;
     overflow-y: scroll;
+    padding-bottom: 5rem;
 }
 
 .product-filters{

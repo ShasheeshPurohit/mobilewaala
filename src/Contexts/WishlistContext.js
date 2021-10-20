@@ -1,6 +1,7 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
 import { useAuth } from "./AuthContext";
 import { baseurl } from "../utils/apiCalls";
+import { toast } from "react-toastify";
 const axios = require('axios');
 
 export const WishlistContext = createContext();
@@ -20,8 +21,10 @@ export function WishlistProvider({ children }) {
     // console.log(product)
     const response = await axios.post(`${baseurl}/api/wishlist/${product._id}`, {})
     if (response.status === 200) {
+      toast.success("Added to wishlist")
       // console.log("added")
       dispatch({ type: "ADD", payload: product })
+      return true
     } else {
       // console.log("error")
     }
@@ -32,6 +35,7 @@ export function WishlistProvider({ children }) {
     const response = await axios.delete(`${baseurl}/api/wishlist/${product._id}`)
     if (response.status === 200) {
       dispatch({ type: "REMOVE", payload: product })
+      toast.success("Removed from wishlist")
     } else {
       // console.log("error")
     }
