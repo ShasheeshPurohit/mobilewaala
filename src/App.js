@@ -10,13 +10,18 @@ import PrivateRoute from './utils/privateRoute';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
 import ProductDetail from './Pages/ProductDetail/ProductDetail';
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
   return (
     <div className="App">
+      <ToastContainer position="bottom-right" theme="dark" autoClose={2000} />
       <Navbar/>
+      
       <div className="App-screen">
+      
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/products" element={<Products/>}/>
@@ -25,8 +30,11 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/products/:productId" element={<ProductDetail/>}/>
+        
       </Routes>
+      
       </div>
+      
     </div>
   );
 }

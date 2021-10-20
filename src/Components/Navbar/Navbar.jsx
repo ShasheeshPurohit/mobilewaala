@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css"
 import {useAuth} from "../../Contexts/AuthContext";
+import {toast} from "react-toastify";
 
 export default function Navbar(){
 

@@ -8,10 +8,22 @@ import {useFilter} from "../../Contexts/FilterContext";
 import { Link } from "react-router-dom";
 import { useCart } from "../../Contexts/CartContext";
 import { useWishlist } from "../../Contexts/WishlistContext";
+import { toast } from "react-toastify";
 
 export default function ProductDetail(){
     const {state, dispatch} = useCart();
     const {wishState, addToWishList, removeFromWishList} = useWishlist();
+    const [cartFlag, setCartFlag] = useState([])
+
+
+    useEffect(()=>{
+
+      if(state!==undefined){
+      setCartFlag(
+        state.filter((item)=>item._id===product._id)
+      )
+      }
+    },[state])
 
     const {productId} = useParams();
     const {filteredData} = useFilter();
@@ -25,7 +37,7 @@ export default function ProductDetail(){
         if (response.status === 200) {
           dispatch({ type: "ADD_TO_CART", payload: product });
           
-        //   toast.success("Added to cart")
+          toast.success("Added to cart")
         //   setloading(false);
         }
         // setloading(false);
@@ -45,6 +57,7 @@ export default function ProductDetail(){
 
     return(
         <div className="product-detail-layout">
+          <div className="product-detail-container">
           <div className="product-detail-display flex mt-16 pr-16 pl-16 justify-around pb-8">
           <div className="product-detail-image-container">
              <img src={product.image} className="product-detail-image"/>
@@ -58,6 +71,7 @@ export default function ProductDetail(){
                     {product.fastDelivery && <div className="product-delivery-details flex flex-col"><i className="fas fa-bolt"></i> <p>Fast Delivery</p></div>}
                 </div>
                 <div className="product-detail-buttons">
+                {}
                 <button className="product-detail-btn mt-8 mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase" onClick={()=>addToCart(product)}>Add <i class="fas fa-shopping-cart"></i></button>
                 <button className="product-detail-btn mt-8 mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase" onClick={()=>addToWishList(product)}>Add <i class="fas fa-heart"></i></button>
                 </div>
@@ -66,6 +80,7 @@ export default function ProductDetail(){
             <div className="product-detail-description pl-16 pr-16 pb-16 pt-8 border-t-4 border-black text-justify">
                 <p className="section-heading text-2xl uppercase font-font-bold">Description:</p>
                 <p className="mt-8">{product.description}</p>
+            </div>
             </div>
         </div>
     );

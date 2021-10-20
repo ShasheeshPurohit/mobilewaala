@@ -1,5 +1,13 @@
 .product-detail-layout{
-    overflow: hidden;
+    height: 100%;
+    overflow-y: scroll;
+    padding-bottom: 2rem;
+
+}
+
+.product-detail-container{
+    
+
 }
 
 .product-detail-image-container{
