@@ -62,7 +62,9 @@ export default function ProductCard({product}){
                 <button className="wishlist-add-btn"><i class="fas fa-heart" style={{color:"red"}} onClick={()=>removeFromWishList(product)}></i></button>
                 :
                     <button className="wishlist-add-btn"><i class="far fa-heart" onClick={()=>{addToWishList(product)}}></i></button>
-    ): <button disabled className="wishlist-add-btn"><i class="fas fa-heart" onClick={()=>addToWishList(product)}></i></button>}
+    ): <button disabled className="wishlist-add-btn"><i class="fas fa-heart" onClick={()=>{
+      toast.info("Login to add to wishlist")
+    }}></i></button>}
             </div>
             <div className="product-details flex">
              <Link to={`/products/${product._id}`}><p className="product-name">{product.name}</p></Link>
@@ -72,7 +74,9 @@ export default function ProductCard({product}){
           <button className="cart-add-btn p-1 bg-black active:scale-90 text-xs rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase" onClick={()=>navigate("/cart")}>go to cart</button>
           :
           <button className="cart-add-btn p-1 bg-black active:scale-90 text-xs rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase" onClick={()=>addToCart(product)}>Add to cart</button>  
-          ):<button className="cart-add-btn p-1 bg-black active:scale-90 text-xs rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase" onClick={()=>addToCart(product)}>Add to cart</button>  }
+          ):<button className="cart-add-btn p-1 bg-black active:scale-90 text-xs rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase" onClick={()=>{
+            toast.info("Login to add to cart")
+          }}>Add to cart</button>  }
         </div>
     );
 }
