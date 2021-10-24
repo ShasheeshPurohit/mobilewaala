@@ -25,8 +25,12 @@ export default function ProductDetail(){
       }
     },[state])
 
+    console.log(state)
+
     const {productId} = useParams();
     const {filteredData} = useFilter();
+
+
 
     // console.log(filteredData)
 
@@ -52,12 +56,13 @@ export default function ProductDetail(){
       };
     
 
-    const product = filteredData.filter((item)=>item._id===productId)[0]
+    const product = filteredData?.filter((item)=>item._id===productId)[0]
+   
     // console.log(product)
 
     return(
         <div className="product-detail-layout">
-          <div className="product-detail-container">
+          {product && <div className="product-detail-container">
           <div className="product-detail-display flex mt-16 pr-16 pl-16 justify-around pb-8">
           <div className="product-detail-image-container">
              <img src={product.image} className="product-detail-image"/>
@@ -71,9 +76,19 @@ export default function ProductDetail(){
                     {product.fastDelivery && <div className="product-delivery-details flex flex-col"><i className="fas fa-bolt"></i> <p>Fast Delivery</p></div>}
                 </div>
                 <div className="product-detail-buttons">
-                {}
-                <button className="product-detail-btn mt-8 mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase" onClick={()=>addToCart(product)}>Add <i class="fas fa-shopping-cart"></i></button>
-                <button className="product-detail-btn mt-8 mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase" onClick={()=>addToWishList(product)}>Add <i class="fas fa-heart"></i></button>
+                {cartFlag.length>0?
+                <Link to="/cart" className="product-detail-btn mt-8 mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase">Go to <i class="fas fa-shopping-cart"></i></Link>
+                
+                :
+                
+                <button className="product-detail-btn mt-8 mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase" onClick={()=>addToCart(product)}>Add <i class="fas fa-shopping-cart"></i></button>}
+                
+                {wishState.some((item)=>item._id===product._id)?
+                
+                <Link to="/wishlist" className="product-detail-btn mt-8 mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase">Go to <i class="fas fa-heart"></i></Link>
+                :
+                
+                <button className="product-detail-btn mt-8 mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase" onClick={()=>addToWishList(product)}>Add <i class="fas fa-heart"></i></button>}
                 </div>
             </div>
             </div>
@@ -81,7 +96,7 @@ export default function ProductDetail(){
                 <p className="section-heading text-2xl uppercase font-font-bold">Description:</p>
                 <p className="mt-8">{product.description}</p>
             </div>
-            </div>
+            </div>}
         </div>
     );
 }

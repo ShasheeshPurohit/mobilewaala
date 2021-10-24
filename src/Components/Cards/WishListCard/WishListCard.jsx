@@ -6,8 +6,10 @@ import { baseurl } from "../../../utils/apiCalls";
 
 export default function WishListCard({product}){
 
-    const {dispatch} = useCart();
+    const {state,dispatch} = useCart();
     const{removeFromWishList} = useWishlist();
+
+    
 
     const addToCart = async (product) => {
         // console.log(product)
@@ -42,7 +44,10 @@ export default function WishListCard({product}){
                 <p className="wishlist-price">₹{product.price}</p>
             </div>
             <button className="cart-add-btn p-1 bg-black active:scale-90 text-xs rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase" onClick={()=>{
+                
+                if(!state.some((item)=>item._id===product._id)){
                 addToCart(product)
+                }
                 removeFromWishList(product)
                 }}>Move to cart</button>
         </div>
