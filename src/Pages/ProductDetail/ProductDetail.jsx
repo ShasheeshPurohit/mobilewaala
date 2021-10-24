@@ -75,20 +75,20 @@ export default function ProductDetail(){
                 <div className="product-deliver-icons flex justify-center mt-8">
                     {product.fastDelivery && <div className="product-delivery-details flex flex-col"><i className="fas fa-bolt"></i> <p>Fast Delivery</p></div>}
                 </div>
-                <div className="product-detail-buttons">
+                <div className="product-detail-buttons mt-16">
                 {cartFlag.length>0?
-                <Link to="/cart" className="product-detail-btn mt-8 mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase">Go to <i class="fas fa-shopping-cart"></i></Link>
+                <Link to="/cart" className="product-detail-btn mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase">Go to <i class="fas fa-shopping-cart"></i></Link>
                 
                 :
                 
-                <button className="product-detail-btn mt-8 mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase" onClick={()=>addToCart(product)}>Add <i class="fas fa-shopping-cart"></i></button>}
+                <button className="product-detail-btn mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase" onClick={()=>addToCart(product)}>Add <i class="fas fa-shopping-cart"></i></button>}
                 
                 {wishState.some((item)=>item._id===product._id)?
                 
-                <Link to="/wishlist" className="product-detail-btn mt-8 mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase">Go to <i class="fas fa-heart"></i></Link>
+                <Link to="/wishlist" className="product-detail-btn mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase">Go to <i class="fas fa-heart"></i></Link>
                 :
                 
-                <button className="product-detail-btn mt-8 mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase" onClick={()=>addToWishList(product)}>Add <i class="fas fa-heart"></i></button>}
+                <button className="product-detail-btn mr-16 ml-16 p-2 bg-black active:scale-90 text-xl rounded-lg border-solid border-4 border-transparent font-bold text-white hover:bg-white hover:text-black hover:border-black uppercase" onClick={()=>addToWishList(product)}>Add <i class="fas fa-heart"></i></button>}
                 </div>
             </div>
             </div>
